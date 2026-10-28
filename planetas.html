@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscar planetas</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Buscador de planetas</h1>
+        <p>Consulta información de los planetas de Star Wars.</p>
+        <a href="index.html">Volver al inicio</a>
+    </header>
+
+    <main>
+        <section>
+            <form data-form="planet">
+                <label for="planet-id">ID del planeta:</label>
+                <input name="id" type="number" id="planet-id" min="1"
+                       placeholder="Ejemplo: 1" required>
+                <button type="submit">Buscar planeta</button>
+            </form>
+
+            <div id="planet-result" aria-live="polite"></div>
+        </section>
+    </main>
+</body>
+</html>

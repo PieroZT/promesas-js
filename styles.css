@@ -1,0 +1,781 @@
+
+/* ==================================================
+   1. FUENTES DE GOOGLE
+   ================================================== */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+
+/* ==================================================
+   2. VARIABLES Y PALETA DE COLORES
+   ================================================== */
+:root {
+    /* Fondos */
+    --bg: #0B1020;
+    --panel: #151D33;
+    --panel-light: #1C2742;
+    --input-bg: #0D1529;
+
+    /* Textos */
+    --text: #F1F5FF;
+    --muted: #AAB6D3;
+
+    /* Bordes */
+    --line: #2A3653;
+    --line-hover: #465779;
+
+    /* Colores de las tarjetas */
+    --blue: #9B8AFB;
+    --cyan: #65D9D0;
+    --pink: #F0B8D8;
+    --gold: #F2CB83;
+    --green: #8EDDB2;
+
+    /* Estados */
+    --danger: #FF9EAD;
+
+    /* Acabados */
+    --radius-sm: 10px;
+    --radius-md: 16px;
+    --radius-lg: 24px;
+
+    --transition: 0.25s ease;
+}
+
+
+/* ==================================================
+   3. REINICIO Y CONFIGURACIÓN GENERAL
+   ================================================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+
+    background:
+        radial-gradient(
+            ellipse at 50% 0%,
+            rgba(112, 97, 190, 0.20) 0%,
+            transparent 48%
+        ),
+        radial-gradient(
+            ellipse at 100% 45%,
+            rgba(65, 177, 183, 0.07) 0%,
+            transparent 38%
+        ),
+        var(--bg);
+
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    line-height: 1.6;
+
+    -webkit-font-smoothing: antialiased;
+}
+
+button,
+input {
+    font: inherit;
+}
+
+button {
+    -webkit-tap-highlight-color: transparent;
+}
+
+::selection {
+    background: var(--cyan);
+    color: #0B1020;
+}
+
+
+/* ==================================================
+   4. ENCABEZADO PRINCIPAL
+   ================================================== */
+.hero {
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    padding: 76px 20px 55px;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    width: 320px;
+    height: 320px;
+    top: -230px;
+    left: 50%;
+
+    transform: translateX(-50%);
+    border-radius: 50%;
+
+    background: var(--blue);
+    opacity: 0.10;
+    filter: blur(80px);
+
+    pointer-events: none;
+}
+
+.eyebrow {
+    position: relative;
+    display: inline-block;
+
+    color: var(--cyan);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+}
+
+.hero h1 {
+    position: relative;
+
+    margin: 14px 0 18px;
+
+    font: 700 clamp(2.5rem, 7vw, 4.8rem) /
+        1.12 'Space Grotesk', sans-serif;
+
+    letter-spacing: -0.055em;
+}
+
+.hero h1 span {
+    color: var(--cyan);
+    text-shadow: 0 0 30px rgba(101, 217, 208, 0.18);
+}
+
+.hero > p:last-child {
+    max-width: 590px;
+    margin: 0 auto;
+
+    color: var(--muted);
+    font-size: 1rem;
+    line-height: 1.8;
+}
+
+
+/* ==================================================
+   5. CONTENEDOR Y SECCIÓN INTRODUCTORIA
+   ================================================== */
+.container {
+    width: min(1120px, calc(100% - 40px));
+    margin: 0 auto 70px;
+    flex: 1;
+}
+
+.intro {
+    margin-bottom: 28px;
+}
+
+.intro h2 {
+    margin-bottom: 8px;
+
+    font: 600 1.7rem 'Space Grotesk', sans-serif;
+    letter-spacing: -0.035em;
+}
+
+.intro p {
+    max-width: 680px;
+
+    color: var(--muted);
+    line-height: 1.8;
+}
+
+
+/* ==================================================
+   6. DISTRIBUCIÓN DE LAS TARJETAS
+   ================================================== */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: stretch;
+    gap: 24px;
+}
+
+
+/* ==================================================
+   7. DISEÑO GENERAL DE LAS TARJETAS
+   ================================================== */
+.card {
+    position: relative;
+    min-width: 0;
+    padding: 27px;
+
+    background: linear-gradient(
+        145deg,
+        #19233C 0%,
+        #121A2E 100%
+    );
+
+    border: 1px solid #2B3856;
+    border-radius: var(--radius-lg);
+
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.20),
+        inset 0 1px 0 rgba(255, 255, 255, 0.025);
+
+    transition:
+        border-color var(--transition),
+        transform var(--transition),
+        box-shadow var(--transition);
+}
+
+.card:hover {
+    border-color: var(--line-hover);
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 22px 45px rgba(0, 0, 0, 0.28),
+        0 0 24px rgba(155, 138, 251, 0.045);
+}
+
+
+/* ==================================================
+   8. COLORES INDIVIDUALES DE CADA TARJETA
+   ================================================== */
+
+/* Planetas de Star Wars */
+.planet-card {
+    border-top: 3px solid var(--blue);
+}
+
+/* Naves de Star Wars */
+.ship-card {
+    border-top: 3px solid var(--cyan);
+}
+
+/* Personajes de Dragon Ball */
+.dragon-card {
+    border-top: 3px solid var(--pink);
+}
+
+/* Pokémon */
+.pokemon-card {
+    border-top: 3px solid var(--gold);
+}
+
+
+/* ==================================================
+   9. ENCABEZADOS, ICONOS Y NUMERACIÓN
+   ================================================== */
+.card-heading {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.emoji {
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+
+    width: 60px;
+    height: 60px;
+
+    background: rgba(255, 255, 255, 0.045);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 18px;
+
+    font-size: 2rem;
+
+    transition: transform var(--transition);
+}
+
+.card:hover .emoji {
+    transform: scale(1.06) rotate(-3deg);
+}
+
+.number {
+    margin-bottom: 5px;
+
+    color: var(--muted);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+}
+
+.card h2 {
+    color: var(--text);
+
+    font: 600 1.3rem 'Space Grotesk', sans-serif;
+    letter-spacing: -0.025em;
+}
+
+.muted {
+    margin: 19px 0 24px;
+
+    color: var(--muted);
+    font-size: 0.92rem;
+    line-height: 1.75;
+}
+
+
+/* ==================================================
+   10. ETIQUETAS Y CAMPOS DE BÚSQUEDA
+   ================================================== */
+label {
+    display: block;
+    margin-bottom: 9px;
+
+    color: #DCE5F7;
+    font-size: 0.88rem;
+    font-weight: 600;
+}
+
+.search-row {
+    display: flex;
+    align-items: stretch;
+    gap: 10px;
+}
+
+input {
+    width: 100%;
+    min-width: 0;
+    min-height: 47px;
+    padding: 12px 14px;
+
+    background: var(--input-bg);
+    color: var(--text);
+
+    border: 1px solid #354361;
+    border-radius: 11px;
+
+    outline: none;
+    font-size: 0.92rem;
+
+    transition:
+        border-color var(--transition),
+        box-shadow var(--transition),
+        background var(--transition);
+}
+
+input::placeholder {
+    color: #7F8CAA;
+}
+
+input:hover {
+    border-color: #536786;
+}
+
+input:focus {
+    background: #111C33;
+    border-color: var(--cyan);
+
+    box-shadow: 0 0 0 4px rgba(101, 217, 208, 0.12);
+}
+
+input:focus-visible {
+    outline: none;
+}
+
+
+/* ==================================================
+   11. BOTONES DE BÚSQUEDA
+   ================================================== */
+button {
+    flex-shrink: 0;
+    min-height: 47px;
+    padding: 0 20px;
+
+    background: linear-gradient(
+        135deg,
+        #79E4DB,
+        #56C9C5
+    );
+
+    color: #0B1824;
+
+    border: 1px solid transparent;
+    border-radius: 11px;
+
+    font-size: 0.9rem;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    box-shadow: 0 5px 18px rgba(101, 217, 208, 0.12);
+
+    transition:
+        transform var(--transition),
+        filter var(--transition),
+        box-shadow var(--transition),
+        background var(--transition);
+}
+
+button:hover {
+    background: linear-gradient(
+        135deg,
+        #9AF0E8,
+        #6DDDD6
+    );
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 8px 24px rgba(101, 217, 208, 0.22);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+button:focus-visible {
+    outline: 3px solid rgba(101, 217, 208, 0.55);
+    outline-offset: 3px;
+}
+
+button:disabled {
+    opacity: 0.55;
+    cursor: wait;
+    transform: none;
+    box-shadow: none;
+}
+
+
+/* ==================================================
+   12. ÁREA DE RESULTADOS
+   ================================================== */
+.result {
+    min-height: 75px;
+    margin-top: 22px;
+}
+
+.empty {
+    padding: 18px;
+
+    background: rgba(8, 16, 31, 0.38);
+    border: 1px dashed #394B69;
+    border-radius: 13px;
+
+    color: var(--muted);
+    font-size: 0.88rem;
+    line-height: 1.7;
+}
+
+
+/* ==================================================
+   13. MENSAJES DE CARGA Y ERROR
+   ================================================== */
+.status {
+    padding: 15px 16px;
+
+    border-radius: 13px;
+
+    font-size: 0.9rem;
+    line-height: 1.7;
+    overflow-wrap: anywhere;
+}
+
+/* Mensaje de carga */
+.loading {
+    background: rgba(112, 97, 190, 0.15);
+    border: 1px solid rgba(155, 138, 251, 0.30);
+
+    color: #E1DEFF;
+}
+
+/* Mensaje de error */
+.error {
+    background: rgba(128, 43, 64, 0.22);
+    border: 1px solid rgba(255, 158, 173, 0.35);
+
+    color: #FFDCE4;
+}
+
+
+/* ==================================================
+   14. LISTA DE DATOS OBTENIDOS DE LAS API
+   ================================================== */
+.data-list {
+    display: grid;
+    gap: 10px;
+    margin: 0;
+}
+
+.data-item {
+    display: grid;
+
+    grid-template-columns:
+        minmax(100px, 0.8fr)
+        minmax(0, 1.2fr);
+
+    gap: 14px;
+    padding: 13px 14px;
+
+    background: rgba(8, 16, 31, 0.48);
+    border: 1px solid #283752;
+    border-radius: 12px;
+
+    overflow-wrap: anywhere;
+
+    transition:
+        background var(--transition),
+        border-color var(--transition);
+}
+
+.data-item:hover {
+    background: rgba(28, 39, 66, 0.75);
+    border-color: #3B4F70;
+}
+
+.data-item dt {
+    color: var(--muted);
+    font-size: 0.84rem;
+}
+
+.data-item dd {
+    margin: 0;
+
+    color: #EDF3FF;
+    font-size: 0.88rem;
+    font-weight: 600;
+}
+
+
+/* ==================================================
+   15. PERSONAJES DE DRAGON BALL
+   ================================================== */
+.character {
+    display: grid;
+    grid-template-columns: 120px minmax(0, 1fr);
+    align-items: start;
+    gap: 18px;
+}
+
+.character img {
+    display: block;
+
+    width: 120px;
+    height: 150px;
+    padding: 7px;
+
+    object-fit: contain;
+
+    background: radial-gradient(
+        circle,
+        rgba(240, 184, 216, 0.12),
+        var(--input-bg) 70%
+    );
+
+    border: 1px solid var(--line);
+    border-radius: 16px;
+}
+
+.character h3 {
+    margin-bottom: 9px;
+
+    color: var(--pink);
+    font: 600 1.25rem 'Space Grotesk', sans-serif;
+
+    overflow-wrap: anywhere;
+}
+
+.character p {
+    color: #C3CDE1;
+    font-size: 0.88rem;
+    line-height: 1.8;
+
+    overflow-wrap: anywhere;
+}
+
+
+/* ==================================================
+   16. POKÉMON
+   ================================================== */
+.pokemon-view {
+    text-align: center;
+}
+
+.pokemon-view img {
+    display: block;
+
+    width: 140px;
+    height: 140px;
+    margin: 0 auto 12px;
+    padding: 10px;
+
+    object-fit: contain;
+    image-rendering: pixelated;
+
+    background: radial-gradient(
+        circle,
+        rgba(242, 203, 131, 0.16),
+        var(--input-bg) 72%
+    );
+
+    border: 1px solid var(--line);
+    border-radius: 50%;
+
+    transition: transform var(--transition);
+}
+
+.pokemon-view img:hover {
+    transform: scale(1.07);
+}
+
+.pokemon-view h3 {
+    margin: 10px 0 18px;
+
+    color: var(--gold);
+    font: 600 1.35rem 'Space Grotesk', sans-serif;
+
+    text-transform: capitalize;
+    overflow-wrap: anywhere;
+}
+
+
+/* ==================================================
+   17. PIE DE PÁGINA
+   ================================================== */
+footer {
+    margin-top: auto;
+    padding: 25px 20px;
+
+    background: rgba(8, 13, 26, 0.55);
+    border-top: 1px solid #202C44;
+
+    color: var(--muted);
+    font-size: 0.83rem;
+    text-align: center;
+}
+
+
+/* ==================================================
+   18. ACCESIBILIDAD Y MOVIMIENTO REDUCIDO
+   ================================================== */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+
+/* ==================================================
+   19. TABLETAS Y PANTALLAS MEDIANAS
+   ================================================== */
+@media (max-width: 900px) {
+    .hero {
+        padding-top: 60px;
+    }
+
+    .cards {
+        gap: 18px;
+    }
+
+    .card {
+        padding: 22px;
+    }
+
+    .data-item {
+        grid-template-columns:
+            minmax(85px, 0.8fr)
+            minmax(0, 1.2fr);
+
+        gap: 10px;
+    }
+}
+
+
+/* ==================================================
+   20. CELULARES
+   ================================================== */
+@media (max-width: 650px) {
+    .hero {
+        padding: 48px 20px 38px;
+    }
+
+    .hero h1 {
+        font-size: clamp(2.3rem, 10vw, 3.4rem);
+    }
+
+    .hero > p:last-child {
+        font-size: 0.93rem;
+    }
+
+    .container {
+        width: calc(100% - 28px);
+        margin-bottom: 40px;
+    }
+
+    .intro h2 {
+        font-size: 1.45rem;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .card {
+        padding: 21px;
+        border-radius: 20px;
+    }
+
+    .card:hover {
+        transform: none;
+    }
+
+    .emoji {
+        width: 54px;
+        height: 54px;
+        font-size: 1.8rem;
+    }
+
+    .card h2 {
+        font-size: 1.2rem;
+    }
+
+    .muted {
+        margin: 16px 0 21px;
+    }
+
+    .result {
+        margin-top: 19px;
+    }
+
+    footer {
+        padding: 22px 16px;
+    }
+}
+
+
+/* ==================================================
+   21. CELULARES PEQUEÑOS
+   ================================================== */
+@media (max-width: 390px) {
+    .search-row {
+        flex-direction: column;
+    }
+
+    .search-row button {
+        width: 100%;
+    }
+
+    .character {
+        grid-template-columns: 1fr;
+    }
+
+    .character img {
+        width: 125px;
+        height: 125px;
+        margin: 0 auto;
+    }
+
+    .data-item {
+        grid-template-columns: 1fr;
+        gap: 4px;
+    }
+
+    .card {
+        padding: 17px;
+    }
+}

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscar Pokémon</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Buscador de Pokémon</h1>
+        <p>Consulta información de diferentes Pokémon.</p>
+        <a href="index.html">Volver al inicio</a>
+    </header>
+
+    <main>
+        <section>
+            <form data-form="pokemon">
+                <label for="pokemon-id">ID o nombre del Pokémon:</label>
+                <input name="id" type="text" id="pokemon-id"
+                       placeholder="Ejemplo: 25 o pikachu" required>
+                <button type="submit">Buscar Pokémon</button>
+            </form>
+
+            <div id="pokemon-result" aria-live="polite"></div>
+        </section>
+    </main>
+</body>
+</html>

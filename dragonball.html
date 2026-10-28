@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscar personajes de Dragon Ball</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Buscador de Dragon Ball</h1>
+        <p>Consulta información de los personajes de Dragon Ball.</p>
+        <a href="index.html">Volver al inicio</a>
+    </header>
+
+    <main>
+        <section>
+            <form data-form="dragonball">
+                <label for="dragonball-id">ID del personaje:</label>
+                <input name="id" type="number" id="dragonball-id" min="1"
+                       placeholder="Ejemplo: 1" required>
+                <button type="submit">Buscar personaje</button>
+            </form>
+
+            <div id="dragonball-result" aria-live="polite"></div>
+        </section>
+    </main>
+</body>
+</html>
